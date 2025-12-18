@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.background-text {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+#scan-btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.4rem;
+  z-index: 1;
+}
+
+#reader {
+  width: 300px;
+  margin-top: 1rem;
+}
