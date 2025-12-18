@@ -24,11 +24,28 @@ function onScanSuccess(decodedText) {
     const trackId = extractTrackId(decodedText);
     if (!trackId) {
       alert("Geen geldige Spotify-link");
+      restartScanner();
       return;
     }
 
     window.location.href = `spotify:track:${trackId}`;
+
+    setTimeout(() => {
+      restartScanner();
+    }, 2000); // genoeg tijd om Spotify te openen
   });
+}
+
+function restartScanner() {
+  if (!html5QrCode) return;
+
+  scanning = true;
+  html5QrCode.start(
+    { facingMode: "environment" },
+    { fps: 10, qrbox: 250 },
+    onScanSuccess,
+    () => {}
+  );
 }
 
 function extractTrackId(text) {
